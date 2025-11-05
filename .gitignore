@@ -1,0 +1,21 @@
+# pixi environments
+.pixi/*
+!.pixi/config.toml
+
+# ROS 2 build artifacts
+build/
+install/
+log/
+
+# Pixi cache / environment directories
+.pixie/
+.env/
+__pycache__/
+
+# Conda caches if any
+*.conda
+*.tar.bz2
+
+# Temporary files
+*.swp
+*.tmp
