@@ -29,7 +29,4 @@ jobs:
         run: pixi run fetch_neobotix_pkgs
 
       - name: Build workspace with Colcon inside Pixi env 
-        run: pixi shell --command "colcon build --symlink-install"
-
-      - name: Verify rox_bringup package presence 
-        run: pixi shell --command "source install/setup.bash"
+        run: pixi run colcon build --symlink-install
