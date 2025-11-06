@@ -1,0 +1,35 @@
+name: Build pixi_rox Workspace
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04   
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+
+      - name: Set up Pixi
+        uses: prefix-dev/setup-pixi@v1
+        with:
+          pixi-version: v0.59.0      
+          cache: true
+
+
+      - name: Install environment with Pixi
+        run: pixi install
+
+      - name: Fetch NeoBotix packages into src/
+        run: pixi run fetch_neobotix_pkgs
+
+      - name: Build workspace with Colcon inside Pixi env 
+        run: pixi shell --command "colcon build --symlink-install"
+
+      - name: Verify rox_bringup package presence 
+        run: pixi shell --command "source install/setup.bash"
