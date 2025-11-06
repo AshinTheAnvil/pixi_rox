@@ -28,7 +28,7 @@ git clone --branch main   https://github.com/neobotix/neo_gz_worlds.git neo_gz_w
 cd .. && echo 'NeoBotix packages ready in src/'
 """
 
-[activation]
-scripts = ["install/setup.sh"]
+#[activation]
+#scripts = ["install/setup.sh"]
 
 
