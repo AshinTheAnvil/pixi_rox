@@ -14,10 +14,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install system dependencies
+      - name: Install system dependencies (LTTng)
         run: |
           sudo apt-get update
-          sudo apt-get install -y liblttng-ust-dev liblttng-ust-common
+          sudo apt-get install -y liblttng-ust-dev
 
 
       - name: Set up Pixi
