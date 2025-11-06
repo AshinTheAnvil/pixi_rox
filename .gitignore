@@ -6,6 +6,7 @@
 build/
 install/
 log/
+src/
 
 # Pixi cache / environment directories
 .pixie/

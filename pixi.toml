@@ -1,18 +1,34 @@
 [workspace]
 authors = ["AshinTheAnvil <ashinanand66@gmail.com>"]
 channels = ["robostack-jazzy", "conda-forge"]
-name = "pixi_rox"
+name = "my_ros2_project"
 platforms = ["linux-64"]
 version = "0.1.0"
+preview = ["pixi-build"]
+
+
+[dependencies]
+ros-jazzy-desktop       = ">=0.11.0,<0.12"
+ros-jazzy-ros-gz-sim    = ">=1.0.16,<2"
+ros-jazzy-ros-gz-bridge = ">=1.0.16,<2"
+ros-jazzy-topic-tools   = ">=1.3.3,<2"
+
 
 [tasks]
+fetch_neobotix_pkgs = """
+mkdir -p src && cd src && \
+git clone --branch jazzy https://github.com/neobotix/rox.git rox && \
+git clone --branch jazzy https://github.com/neobotix/neo_local_planner2.git neo_local_planner2 && \
+git clone --branch jazzy https://github.com/neobotix/neo_localization2.git neo_localization2 && \
+git clone --branch jazzy https://github.com/neobotix/neo_rox_moveit2.git neo_rox_moveit2 && \
+git clone --branch master https://github.com/neobotix/neo_common2.git neo_common2 && \
+git clone --branch master https://github.com/neobotix/neo_msgs2.git neo_msgs2 && \
+git clone --branch master https://github.com/neobotix/neo_srvs2.git neo_srvs2 && \
+git clone --branch main   https://github.com/neobotix/neo_gz_worlds.git neo_gz_worlds && \
+cd .. && echo 'NeoBotix packages ready in src/'
+"""
 
 [activation]
 scripts = ["install/setup.sh"]
 
 
-[dependencies]
-ros-jazzy-desktop = ">=0.11.0,<0.12"
-ros-jazzy-ros-gz-sim = ">=1.0.16,<2"
-ros-jazzy-ros-gz-bridge = ">=1.0.16,<2"
-ros-jazzy-topic-tools = ">=1.3.3,<2"
