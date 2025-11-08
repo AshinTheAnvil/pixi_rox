@@ -1,6 +1,6 @@
 # pixi_rox — Reproducible Neobotix ROX ROS 2 Jazzy Workspace with Pixi
 
-This repository defines a fully reproducible **ROS 2 Jazzy** development and simulation environment using [Pixi](https://prefix.dev/pixi).  
+This repository defines a fully reproducible **ROS 2 Jazzy** development and simulation environment using [Pixi](https://pixi.sh/dev/tutorials/ros2/).  
 All dependencies, packages, and build steps are automated so that anyone can recreate the same workspace on any machine.
 
 
